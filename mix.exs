@@ -4,7 +4,7 @@ defmodule ExLitedb.MixProject do
   def project do
     [
       app: :ex_litedb,
-      version: "0.9.1",
+      version: "0.9.2",
       elixir: "~> 1.12",
       deps: deps(),
       package: package(),

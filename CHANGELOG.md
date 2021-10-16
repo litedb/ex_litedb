@@ -1,3 +1,7 @@
+### 0.9.2
+
+- Add tests + fix ext path building function
+
 ### 0.9.0
 
 - Rename package to `ex_litedb`
