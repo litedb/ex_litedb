@@ -1,7 +1,7 @@
 ### 0.9.0
 
 - Rename package to `ex_litedb`
--
+- switch to packages from `https://github.com/litedb/litedb`
 
 ### 0.8.8
 
