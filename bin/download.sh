@@ -1,29 +1,26 @@
-#/usr/bin/env bash
+#!/usr/bin/env bash
 
+## Requirements: curl / jq
 
-VERSION=0.8.8-3360
+VERSION=0.9.1-3360
 EXTNAME=".dll" # dylib | so
 FINALEXTNAME=".dll"
 
+## download the list of released extensions
+curl -L https://github.com/litedb/litedb/releases/download/0.9.1-3360/extensions.json --output extensions.json
+
+## extract extensions as list
+exts=$(cat extensions.json | jq -r ".extensions[]")
 download(){
-    wget https://github.com/mindreframer/sqlean/releases/download/$VERSION/bloom_filter$EXTNAME -O bloom_filter$FINALEXTNAME
-    wget https://github.com/mindreframer/sqlean/releases/download/$VERSION/crypto$EXTNAME -O crypto$FINALEXTNAME
-    wget https://github.com/mindreframer/sqlean/releases/download/$VERSION/ipaddr$EXTNAME -O ipaddr$FINALEXTNAME
-    wget https://github.com/mindreframer/sqlean/releases/download/$VERSION/json1$EXTNAME -O json1$FINALEXTNAME
-    wget https://github.com/mindreframer/sqlean/releases/download/$VERSION/math$EXTNAME -O math$FINALEXTNAME
-    wget https://github.com/mindreframer/sqlean/releases/download/$VERSION/memstat$EXTNAME -O memstat$FINALEXTNAME
-    wget https://github.com/mindreframer/sqlean/releases/download/$VERSION/re$EXTNAME -O re$FINALEXTNAME
-    wget https://github.com/mindreframer/sqlean/releases/download/$VERSION/series$EXTNAME -O series$FINALEXTNAME
-    wget https://github.com/mindreframer/sqlean/releases/download/$VERSION/shawnw_math$EXTNAME -O shawnw_math$FINALEXTNAME
-    wget https://github.com/mindreframer/sqlean/releases/download/$VERSION/spellfix$EXTNAME -O spellfix$FINALEXTNAME
-    wget https://github.com/mindreframer/sqlean/releases/download/$VERSION/stats$EXTNAME -O stats$FINALEXTNAME
-    wget https://github.com/mindreframer/sqlean/releases/download/$VERSION/text$EXTNAME -O text$FINALEXTNAME
-    wget https://github.com/mindreframer/sqlean/releases/download/$VERSION/unicode$EXTNAME -O unicode$FINALEXTNAME
-    wget https://github.com/mindreframer/sqlean/releases/download/$VERSION/vsv$EXTNAME -O vsv$FINALEXTNAME
+    for ext in $exts ; do
+        url="https://github.com/litedb/litedb/releases/download/$VERSION/$ext$EXTNAME"
+        cmd="wget $url -O $ext$FINALEXTNAME"
+        # echo $cmd ## for debugging
+        $($cmd)
+    done
 }
 
-
-# compiled extensions for Apple M1 (arm64) are handled locally in manual fashion for now
+# compiled extensions for Apple M1 (arm64) are handled locally in manual fashion until Github Actions support it!
 
 mkdir -p priv/darwin-amd64
 pushd priv/darwin-amd64
@@ -31,7 +28,6 @@ rm *
 EXTNAME=".dylib"
 FINALEXTNAME=".dylib"
 download
-
 
 popd
 mkdir -p priv/windows-amd64
@@ -41,7 +37,6 @@ EXTNAME=".dll"
 FINALEXTNAME=".dll"
 download
 
-
 popd
 mkdir -p priv/windows-win32
 pushd priv/windows-win32
@@ -49,7 +44,6 @@ rm *
 EXTNAME="-win32.dll"
 FINALEXTNAME=".dll"
 download
-
 
 popd
 mkdir -p priv/linux-amd64

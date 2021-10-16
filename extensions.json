@@ -1,0 +1,21 @@
+{
+  "extensions": [
+    "bfsvtab",
+    "bloom_filter",
+    "cron",
+    "crypto",
+    "ipaddr",
+    "json1",
+    "math",
+    "memstat",
+    "pivot_vtab",
+    "re",
+    "series",
+    "shawnw_math",
+    "spellfix",
+    "stats",
+    "text",
+    "unicode",
+    "vsv"
+  ]
+}
