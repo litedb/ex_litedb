@@ -1,19 +1,19 @@
 # With ideas from from https://github.com/zeam-vm/cpu_info/blob/master/lib/cpu_info.ex
-defmodule ExSqlean.CpuInfo do
+defmodule ExLitedb.CpuInfo do
   @doc """
   Responds with os type / cpu type tuple.
 
   Example:
-      iex_ > ExSqlean.CpuInfo.fullinfo()
+      iex_ > ExLitedb.CpuInfo.fullinfo()
       {:macos, "arm64"}
   """
   @spec fullinfo :: {atom(), binary()}
   def fullinfo do
-    if v = ExSqlean.CacheETS.get(:fullinfo) do
+    if v = ExLitedb.CacheETS.get(:fullinfo) do
       v
     else
       v = {os_type(), cpu_type()}
-      ExSqlean.CacheETS.put(:fullinfo, v)
+      ExLitedb.CacheETS.put(:fullinfo, v)
       v
     end
   end

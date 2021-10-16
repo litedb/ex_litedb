@@ -1,14 +1,14 @@
-defmodule ExSqlean.MixProject do
+defmodule ExLitedb.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :ex_sqlean,
+      app: :ex_litedb,
       version: "0.8.8",
       elixir: "~> 1.12",
       deps: deps(),
       package: package(),
-      source_url: "https://github.com/mindreframer/ex_sqlean",
+      source_url: "https://github.com/litedb/ex_litedb",
       description: "Precompiled SQLite extensions, to be used with `exqlite`.",
       start_permanent: Mix.env() == :prod
     ]
@@ -18,7 +18,7 @@ defmodule ExSqlean.MixProject do
   def application do
     [
       extra_applications: [:logger],
-      mod: {ExSqlean.Application, []}
+      mod: {ExLitedb.Application, []}
     ]
   end
 
@@ -27,7 +27,7 @@ defmodule ExSqlean.MixProject do
       # These are the default files included in the package
       files: ~w(lib priv .formatter.exs mix.exs README* LICENSE* CHANGELOG*),
       licenses: ["MIT"],
-      links: %{"GitHub" => "https://github.com/mindreframer/ex_sqlean"}
+      links: %{"GitHub" => "https://github.com/litedb/ex_litedb"}
     ]
   end
 

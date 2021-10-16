@@ -1,12 +1,12 @@
-defmodule ExSqlean do
+defmodule ExLitedb do
   @moduledoc """
-  Documentation for `ExSqlean`.
+  Documentation for `ExLitedb`.
   """
 
-  alias ExSqlean.CpuInfo
+  alias ExLitedb.CpuInfo
 
   # https://github.com/mindreframer/sqlean/blob/forked/gen/generateMakefile.js#L4
-  @extensions ExSqlean.Extensions.all()
+  @extensions ExLitedb.Extensions.all()
   def extensions do
     @extensions
   end

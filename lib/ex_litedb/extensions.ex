@@ -1,6 +1,6 @@
-defmodule ExSqlean.Extensions do
+defmodule ExLitedb.Extensions do
   def all do
-    pattern = Path.join([:code.priv_dir(:ex_sqlean), "darwin-amd64", "*.dylib"])
+    pattern = Path.join([:code.priv_dir(:ex_litedb), "darwin-amd64", "*.dylib"])
 
     Path.wildcard(pattern)
     |> Enum.map(fn x -> String.replace(x, ".dylib", "") end)

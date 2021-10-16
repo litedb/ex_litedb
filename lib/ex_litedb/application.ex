@@ -1,4 +1,4 @@
-defmodule ExSqlean.Application do
+defmodule ExLitedb.Application do
   @moduledoc false
 
   use Application
@@ -6,7 +6,7 @@ defmodule ExSqlean.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      ExSqlean.CacheETS
+      ExLitedb.CacheETS
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

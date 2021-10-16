@@ -1,4 +1,4 @@
-defmodule ExSqlean.CacheETS do
+defmodule ExLitedb.CacheETS do
   use GenServer
   @name :ex_sqlean_cache
 
