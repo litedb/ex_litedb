@@ -12,7 +12,7 @@ defmodule ExLitedb do
   end
 
   def path_for(extension) when extension in @extensions do
-    Path.join(:code.priv_dir(:ex_sqlean), "#{arch_path()}/#{extension}")
+    Path.join(:code.priv_dir(:ex_litedb), "#{arch_path()}/#{extension}")
   end
 
   def path_for(missing_ext) do
