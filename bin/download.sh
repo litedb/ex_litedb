@@ -2,12 +2,12 @@
 
 ## Requirements: curl / jq
 
-VERSION=0.9.1-3360
+VERSION=0.9.2-3360
 EXTNAME=".dll" # dylib | so
 FINALEXTNAME=".dll"
 
 ## download the list of released extensions
-curl -L https://github.com/litedb/litedb/releases/download/0.9.1-3360/extensions.json --output extensions.json
+curl -L https://github.com/litedb/litedb/releases/download/$VERSION/extensions.json --output extensions.json
 
 ## extract extensions as list
 exts=$(cat extensions.json | jq -r ".extensions[]")

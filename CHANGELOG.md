@@ -1,3 +1,8 @@
+### 0.9.3
+
+- Update to litedb 0.9.2-3360 (https://github.com/litedb/litedb/releases/tag/0.9.2-3360)
+  - distance extension
+
 ### 0.9.2
 
 - Add tests + fix ext path building function

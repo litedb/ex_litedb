@@ -4,6 +4,7 @@
     "bloom_filter",
     "cron",
     "crypto",
+    "distance",
     "ipaddr",
     "json1",
     "math",
